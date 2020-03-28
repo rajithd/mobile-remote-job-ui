@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "mobile-remote-job-ui",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

@@ -1,0 +1,7 @@
+{
+  "name": "mobile-remote-job-ui",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
