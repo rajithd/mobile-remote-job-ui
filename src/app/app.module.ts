@@ -10,6 +10,7 @@ import {Keyboard} from '@ionic-native/keyboard';
 
 import {ActivityService} from "../services/activity-service";
 import {TripService} from "../services/trip-service";
+import {SubscriberListService} from '../services/subscriber-list';
 import {WeatherProvider} from "../services/weather";
 
 import {MyApp} from "./app.component";
@@ -79,7 +80,8 @@ import {LocalWeatherPage} from "../pages/local-weather/local-weather";
     Keyboard,
     ActivityService,
     TripService,
-    WeatherProvider
+    WeatherProvider,
+    SubscriberListService
   ]
 })
 

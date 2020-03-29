@@ -1,19 +1,21 @@
-import { Component, ViewChild } from "@angular/core";
-import { Platform, Nav } from "ionic-angular";
+import {Component, ViewChild} from '@angular/core';
+import {Nav, Platform} from 'ionic-angular';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { Keyboard } from '@ionic-native/keyboard';
+import {StatusBar} from '@ionic-native/status-bar';
+import {SplashScreen} from '@ionic-native/splash-screen';
+import {Keyboard} from '@ionic-native/keyboard';
 
-import { HomePage } from "../pages/home/home";
-import { LoginPage } from "../pages/login/login";
-import { LocalWeatherPage } from "../pages/local-weather/local-weather";
+import {HomePage} from '../pages/home/home';
+import {LoginPage} from '../pages/login/login';
+import {LocalWeatherPage} from '../pages/local-weather/local-weather';
+import {MenuItem} from './menu-item';
+import {SubscriberListService} from '../services/subscriber-list';
 
-export interface MenuItem {
-    title: string;
-    component: any;
-    icon: string;
-}
+// export interface MenuItem {
+//     title: string;
+//     component: any;
+//     icon: string;
+// }
 
 @Component({
   templateUrl: 'app.html'
@@ -30,14 +32,19 @@ export class MyApp {
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public keyboard: Keyboard
+    public keyboard: Keyboard,
+    public subscriberService: SubscriberListService
   ) {
     this.initializeApp();
 
-    this.appMenuItems = [
-      {title: 'Home', component: HomePage, icon: 'home'},
-      {title: 'Local Weather', component: LocalWeatherPage, icon: 'partly-sunny'}
-    ];
+    this.subscriberService.getAll().subscribe(items => {
+      this.appMenuItems = items
+    });
+
+    // this.appMenuItems = [
+    //   {title: 'Home', component: HomePage, icon: 'home'},
+    //   {title: 'Local Weather', component: LocalWeatherPage, icon: 'partly-sunny'}
+    // ];
   }
 
   initializeApp() {
