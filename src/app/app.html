@@ -44,9 +44,8 @@
 
     <ion-list class="user-list">
       <button ion-item menuClose class="text-1x" *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)">
-        <ion-icon item-left name="logo-github" color="primary"></ion-icon>
-<!--        <ion-icon item-left [name]="menuItem.name" color="primary"></ion-icon>-->
-        <span ion-text color="primary">{{menuItem.name}}</span>
+        <ion-icon item-left [name]="menuItem.icon" color="primary"></ion-icon>
+        <span ion-text color="primary">{{menuItem.title}}</span>
       </button>
     </ion-list>
   </ion-content>
